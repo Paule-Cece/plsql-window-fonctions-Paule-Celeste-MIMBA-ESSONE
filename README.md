@@ -34,14 +34,12 @@ This project showcases advanced analytics using PL/SQL window functions to analy
 plsql-window-functions-Paule-Celeste-MIMBA-ESSONE/
 │
 ├── README.md                # Project documentation
-├── schema.sql               # SQL scripts for database schema
-├── sample-data.sql          # Sample data for testing
+├── schema/
+│   └── schema.sql               # SQL scripts for database schema 
+|
 ├── queries/
-│   ├── ranking.sql          # Student ranking queries
-│   ├── trends.sql           # Enrollment and grade trends
-│   └── performance.sql      # Performance tracking queries
-├── scripts/
-│   └── setup.sql            # Setup and initialization scripts
+│    └── window-function.sql          # Student ranking queries, Enrollment and grade,   Performance tracking queries trends, 
+│  
 └── results/
     └── analysis.md          # Insights and findings
 ```
@@ -65,22 +63,29 @@ The project uses a normalized relational schema:
 ```mermaid
 erDiagram
     STUDENTS {
-        int StudentID PK
-        string StudentName
-        string Semester
-        float Grade
+        int StudentID PK "Unique student identifier"
+        string StudentName "Full name of the student"
+        string Semester "Academic term"
+        float Grade "Student's grade"
     }
     COURSES {
-        int CourseID PK
-        string CourseName
+        int CourseID PK "Unique course identifier"
+        string CourseName "Name of the course"
     }
     ENROLLMENTS {
-        int StudentID FK
-        int CourseID FK
+        int StudentID FK "References STUDENTS"
+        int CourseID FK "References COURSES"
     }
-    STUDENTS ||--o{ ENROLLMENTS : enrolls
-    COURSES ||--o{ ENROLLMENTS : includes
+    STUDENTS ||--o{ ENROLLMENTS : "enrolls in"
+    COURSES ||--o{ ENROLLMENTS : "is taken by"
 ```
+
+**Diagram Notes:**
+- Each student can enroll in multiple courses per semester.
+- Each course can have multiple enrolled students.
+- The ENROLLMENTS table links students and courses, supporting many-to-many relationships.
+- Grades are tracked per student per semester.
+- All foreign key relationships are clearly indicated.
 
 ---
 
