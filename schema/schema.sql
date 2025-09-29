@@ -26,7 +26,7 @@ CREATE TABLE transactions (
 -- Insérer quelques données de test
 
 -- Clients
-INSERT INTO customers VALUES (1001, 'John Doe', 'Kigali'); 
+INSERT INTO customers VALUES (1001, 'John Doe', 'Kigali');  
 INSERT INTO customers VALUES (1002, 'Alice Smith', 'Huye');
 INSERT INTO customers VALUES (1003, 'Eric Brown', 'Musanze');
 INSERT INTO customers VALUES (1004, 'Marie Uwimana', 'Kigali');
@@ -50,4 +50,3 @@ INSERT INTO transactions VALUES (3007, 1002, 2004, DATE '2024-04-02', 28000);
 INSERT INTO transactions VALUES (3008, 1003, 2002, DATE '2024-04-15', 15000);
 INSERT INTO transactions VALUES (3009, 1004, 2003, DATE '2024-05-09', 17000);
 INSERT INTO transactions VALUES (3010, 1005, 2005, DATE '2024-06-11', 24000);
-
